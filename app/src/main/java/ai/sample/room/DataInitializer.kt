@@ -52,13 +52,15 @@ class DataInitializer(
                         time = messages.time,
                         status = messages.status)
 
-                    mediaMessagesList += MediaMessage(
-                        mediaMessageId = messages.mediaMessages!!.mediaMessageId!!,
-                        messageId = messages.messageId!!,
-                        thumbnails = messages.mediaMessages.thumbnails,
-                        type = messages.mediaMessages.type,
-                        subType = messages.mediaMessages.subType
-                    )
+                    if(messages.messageType != "text") {
+                        mediaMessagesList += MediaMessage(
+                            mediaMessageId = messages.mediaMessages!!.mediaMessageId!!,
+                            messageId = messages.messageId!!,
+                            thumbnails = messages.mediaMessages.thumbnails,
+                            type = messages.mediaMessages.type,
+                            subType = messages.mediaMessages.subType
+                        )
+                    }
                 }
             }
         }
