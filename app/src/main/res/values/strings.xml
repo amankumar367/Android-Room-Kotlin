@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Room Sample</string>
+
+    // MainActivity Strings resources
+    <string name="save_all_message">Save All Message</string>
+    <string name="media_nmessage">Get Media Message</string>
+    <string name="all_nmessage">Get All Message</string>
+    <string name="delete_all_messages">Delete All Messages</string>
+    <string name="message_list">Message List</string>
+    <string name="media_message_list">Media Message List</string>
 </resources>

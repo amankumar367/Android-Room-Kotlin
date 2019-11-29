@@ -87,6 +87,8 @@ class MainActivity : AppCompatActivity() {
         executor.execute {
             mDB.messageDao().deleteAllMessages()
             runOnUiThread {
+                getMessage()
+                getMediaMessage()
                 showToast("All Messages Deleted")
             }
         }
