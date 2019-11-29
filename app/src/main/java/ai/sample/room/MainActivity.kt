@@ -68,7 +68,7 @@ class MainActivity : AppCompatActivity() {
         executor.execute {
             listmessage = mDB.messageDao().loadAllMessage()
             runOnUiThread {
-                showToast("Loading list of messages: \n$listmessage")
+                tv_message.text = listmessage.toString()
             }
         }
     }
@@ -78,7 +78,7 @@ class MainActivity : AppCompatActivity() {
         executor.execute {
             listmediamessage = mDB.messageDao().loadAllMediaMessage()
             runOnUiThread {
-                showToast("Loading list of media messages: \n$listmediamessage")
+                tv_media_message.text = listmediamessage.toString()
             }
         }
     }

@@ -1,49 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:fillViewport="true">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/save_btn"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Save All Message"
-        app:layout_constraintBottom_toTopOf="@+id/get_btn"
-        app:layout_constraintEnd_toEndOf="@+id/get_btn"
-        app:layout_constraintStart_toStartOf="@+id/get_btn"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:context=".MainActivity">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/getMedia_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Get Media\nMessage"
-        app:layout_constraintBottom_toTopOf="@+id/delete_btn"
-        app:layout_constraintEnd_toEndOf="@+id/delete_btn"
-        app:layout_constraintStart_toStartOf="@+id/delete_btn"
-        app:layout_constraintTop_toBottomOf="@+id/get_btn" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/save_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Save All Message"
+            app:layout_constraintEnd_toStartOf="@+id/delete_btn"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/get_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Get Message"
-        app:layout_constraintBottom_toTopOf="@+id/getMedia_btn"
-        app:layout_constraintEnd_toEndOf="@+id/getMedia_btn"
-        app:layout_constraintStart_toStartOf="@+id/getMedia_btn"
-        app:layout_constraintTop_toBottomOf="@+id/save_btn" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/getMedia_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Get Media\nMessage"
+            app:layout_constraintBottom_toBottomOf="@+id/get_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/get_btn"
+            app:layout_constraintTop_toTopOf="@+id/get_btn" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/delete_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Delete All Messages"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/getMedia_btn" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/get_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Get All\nMessage"
+            app:layout_constraintEnd_toStartOf="@+id/getMedia_btn"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/save_btn" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/delete_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delete All Messages"
+            app:layout_constraintBottom_toBottomOf="@+id/save_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/save_btn"
+            app:layout_constraintTop_toTopOf="@+id/save_btn" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_message_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:fontFamily="monospace"
+            android:text="Message List"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.079"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/get_btn" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_message"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="sans-serif-condensed-light"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_message_label"
+            app:layout_constraintTop_toBottomOf="@+id/tv_message_label"
+            tools:text="List of message " />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_media_message_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:fontFamily="monospace"
+            android:text="Media Message List"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.079"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_message" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_media_message"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="sans-serif-condensed-light"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_media_message_label"
+            app:layout_constraintTop_toBottomOf="@+id/tv_media_message_label"
+            tools:text="List of media message " />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
