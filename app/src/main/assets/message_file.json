@@ -1,0 +1,134 @@
+{
+  "messages": [
+    {
+      "messageId":1,
+      "messageType": "text",
+      "text": "Hey, This is dummy message from your local database",
+      "time":1574926145,
+      "status":"sent",
+      "mediaMessages" : {
+        "mediaMessageId":1,
+        "thumbnails":"https://img.favpng.com/19/20/22/computer-icons-message-sms-png-favpng-b8MRmyk0JDhumWgZbLbTta6wX.jpg",
+        "type":"image",
+        "subType":"jpg"
+      }
+    },
+    {
+      "messageId":2,
+      "messageType": "media",
+      "text": "Thank you for this informations",
+      "time":1574926155,
+      "status":"receive",
+      "mediaMessages" : {
+        "mediaMessageId":2,
+        "thumbnails":"https://www.youtube.com/watch?v=LdH7aFjDzjI&list=RDLdH7aFjDzjI&start_radio=1",
+        "type":"video",
+        "subType":"mp4"
+      }
+    },
+    {
+      "messageId":3,
+      "messageType": "text",
+      "text": "Hope you are doing great",
+      "time":1574926165,
+      "status":"sent",
+      "mediaMessages" : {
+        "mediaMessageId":3,
+        "thumbnails":"https://www.youtube.com/watch?v=yN0HcD32At0&list=RDLdH7aFjDzjI&index=4",
+        "type":"video",
+        "subType":"mp4"
+      }
+    },
+    {
+      "messageId":4,
+      "messageType": "text",
+      "text": "Hope you are doing great",
+      "time":1574926175,
+      "status":"receive",
+      "mediaMessages" : {
+        "mediaMessageId":4,
+        "thumbnails":"https://png.pngtree.com/element_origin_min_pic/16/07/10/2357826789cf803.jpg",
+        "type":"image",
+        "subType":"jpg"
+      }
+    },
+    {
+      "messageId":5,
+      "messageType": "media",
+      "text": "Thank You!",
+      "time":1574926185,
+      "status":"sent",
+      "mediaMessages" : {
+        "mediaMessageId":5,
+        "thumbnails":"https://www.youtube.com/watch?v=yN0HcD32At0&list=RDLdH7aFjDzjI&index=4",
+        "type":"video",
+        "subType":"mp4"
+      }
+    },
+    {
+      "messageId":6,
+      "messageType": "media",
+      "text": "It's my pleasure",
+      "time":1574926195,
+      "status":"receive",
+      "mediaMessages" : {
+        "mediaMessageId":6,
+        "thumbnails":"https://img.favpng.com/19/20/22/computer-icons-message-sms-png-favpng-b8MRmyk0JDhumWgZbLbTta6wX.jpg",
+        "type":"image",
+        "subType":"jpg"
+      }
+    },
+    {
+      "messageId":7,
+      "messageType": "text",
+      "text": "What is the current weather of chennai",
+      "time":1574926245,
+      "status":"sent",
+      "mediaMessages" : {
+        "mediaMessageId":7,
+        "thumbnails":"https://www.youtube.com/watch?v=LdH7aFjDzjI&list=RDLdH7aFjDzjI&start_radio=1",
+        "type":"video",
+        "subType":"mp4"
+      }
+    },
+    {
+      "messageId":8,
+      "messageType": "text",
+      "text": "cloudy weather, it seems rain will happen at evening",
+      "time":1574926345,
+      "status":"receive",
+      "mediaMessages" : {
+        "mediaMessageId":8,
+        "thumbnails":"https://img.favpng.com/19/20/22/computer-icons-message-sms-png-favpng-b8MRmyk0JDhumWgZbLbTta6wX.jpg",
+        "type":"image",
+        "subType":"jpg"
+      }
+    },
+    {
+      "messageId":9,
+      "messageType": "text",
+      "text": "OMG",
+      "time":1574926445,
+      "status":"sent",
+      "mediaMessages" : {
+        "mediaMessageId":9,
+        "thumbnails":"https://www.youtube.com/watch?v=LdH7aFjDzjI&list=RDLdH7aFjDzjI&start_radio=1",
+        "type":"video",
+        "subType":"mp4"
+      }
+    },
+    {
+      "messageId":10,
+      "messageType": "media",
+      "text": "It's my bad, I'm not trainned on this.",
+      "time":1574926545,
+      "status":"receive",
+      "mediaMessages" : {
+        "mediaMessageId":10,
+        "thumbnails":"https://www.youtube.com/watch?v=LdH7aFjDzjI&list=RDLdH7aFjDzjI&start_radio=1",
+        "type":"video",
+        "subType":"mp4"
+      }
+    }
+  ]
+}
