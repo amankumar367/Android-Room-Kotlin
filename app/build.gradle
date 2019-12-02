@@ -23,6 +23,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 
 dependencies {
@@ -49,4 +53,8 @@ dependencies {
     // Stetho
     def vStetho = '1.5.1'
     implementation "com.facebook.stetho:stetho:$vStetho"
+
+    // WorkManager
+    def vWork = "2.2.0"
+    implementation "androidx.work:work-runtime-ktx:$vWork"
 }

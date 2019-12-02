@@ -25,14 +25,14 @@ abstract class AppDatabase: RoomDatabase() {
         fun getInstance(context: Context): AppDatabase? {
             if (INSTANCE == null) {
                 synchronized(this) {
-                    Log.d(TAG, "Creating new database instance")
+                    Log.d(TAG, " >>> Creating new database instance")
                     INSTANCE = Room.databaseBuilder(
                         context.applicationContext,
                         AppDatabase::class.java,
                         DATABASE_NAME).build()
                 }
             }
-            Log.d(TAG, "Getting the database instance")
+            Log.d(TAG, " >>> Getting the database instance")
             return INSTANCE
         }
 

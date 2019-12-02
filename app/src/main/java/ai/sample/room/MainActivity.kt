@@ -6,6 +6,9 @@ import ai.sample.room.extention.showToast
 import ai.sample.room.room.AppDatabase
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.work.Constraints
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkManager
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.concurrent.Executor
 import java.util.concurrent.Executors
@@ -48,19 +51,18 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun saveMessage() {
-        DataInitializer(this, executor, mDB, object: DatabaseCallback{
-            override fun success() {
-                runOnUiThread {
-                    showToast("Data Store successfull")
-                }
-            }
+        // Create a Constraints object that defines when the task should run
+        val constraints = Constraints.Builder()
+            .setRequiresDeviceIdle(true)
+            .setRequiresCharging(true)
+            .build()
 
-            override fun failure(error: String?) {
-                runOnUiThread {
-                    showToast("Failed to store data with error message : \n$error")
-                }
-            }
-        })
+        // ...then create a OneTimeWorkRequest that uses those constraints
+        val dataInitializationWork = OneTimeWorkRequestBuilder<DataInitializerWork>()
+            .setConstraints(constraints)
+            .build()
+
+        WorkManager.getInstance(this).enqueue(dataInitializationWork)
     }
 
     private fun getMessage() {

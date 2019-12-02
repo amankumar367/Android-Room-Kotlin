@@ -7,19 +7,26 @@ import ai.sample.room.room.AppDatabase
 import ai.sample.room.utils.MESSAGE_FILE_NAME
 import android.content.Context
 import android.util.Log
+import androidx.work.Worker
+import androidx.work.WorkerParameters
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.google.gson.stream.JsonReader
 import java.util.concurrent.Executor
 
-class DataInitializer(
-    context: Context,
-    private val executor: Executor,
-    private val db: AppDatabase,
-    private val dbcallback: DatabaseCallback) {
+class DataInitializerWork(context: Context, workerParams: WorkerParameters)
+    : Worker(context, workerParams) {
 
-    init {
-        getDataFromAssestFile(context.applicationContext)
+    private lateinit var db: AppDatabase
+    private lateinit var result: Result
+
+    override fun doWork(): Result {
+        Log.d(TAG, " >>> Starting Data initialization work")
+
+        db = AppDatabase.getInstance(applicationContext)!!
+        getDataFromAssestFile(applicationContext)
+
+        return result
     }
 
     private fun getDataFromAssestFile(context: Context) {
@@ -35,7 +42,6 @@ class DataInitializer(
             }
         } catch (exception: Exception) {
             Log.e(TAG, "Error on reading Message file", exception)
-            dbcallback.failure(exception.localizedMessage)
         }
     }
 
@@ -72,15 +78,14 @@ class DataInitializer(
     }
 
     private fun storeMessages(messageList: MutableList<Message>, mediaMessagesList: MutableList<MediaMessage>) {
-        executor.execute {
-            try {
-                db.messageDao().insertMultipleMessage(messageList)
-                db.messageDao().insertMultipleMediaMessage(mediaMessagesList)
-                dbcallback.success()
-            } catch (exception: Exception) {
-                Log.e(TAG, " >>> Failed To store message with error message: ${exception.localizedMessage}", exception)
-                dbcallback.failure(exception.localizedMessage)
-            }
+        result = try {
+            db.messageDao().deleteAllMessages()
+            db.messageDao().insertMultipleMessage(messageList)
+            db.messageDao().insertMultipleMediaMessage(mediaMessagesList)
+            Result.success()
+        } catch (exception: Exception) {
+            Log.e(TAG, " >>> Failed To store message with error message: ${exception.localizedMessage}", exception)
+            Result.failure()
         }
     }
 
