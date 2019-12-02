@@ -10,7 +10,7 @@ class MainApplication: Application() {
 
         if(BuildConfig.DEBUG) {
             Stetho.initializeWithDefaults(this)
-            Log.d(TAG, "Initializing Stetho")
+            Log.d(TAG, " >>> Initializing Stetho")
         }
     }
 

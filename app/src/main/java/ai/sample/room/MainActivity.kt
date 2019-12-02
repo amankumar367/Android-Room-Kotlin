@@ -6,8 +6,10 @@ import ai.sample.room.extention.showToast
 import ai.sample.room.room.AppDatabase
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import androidx.work.Constraints
 import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkInfo.State.*
 import androidx.work.WorkManager
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.concurrent.Executor
@@ -63,6 +65,15 @@ class MainActivity : AppCompatActivity() {
             .build()
 
         WorkManager.getInstance(this).enqueue(dataInitializationWork)
+        WorkManager.getInstance(this).getWorkInfoByIdLiveData(dataInitializationWork.id)
+            .observe(this, Observer { workInfo ->
+                // Check if the current work's state is "successfully finished"
+                when (workInfo.state) {
+                    SUCCEEDED -> showToast("All Data Store Successfully")
+                    FAILED    -> showToast("Failed to Data Store")
+                    else -> {}
+                }
+            })
     }
 
     private fun getMessage() {

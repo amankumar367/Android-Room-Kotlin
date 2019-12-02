@@ -12,7 +12,6 @@ import androidx.work.WorkerParameters
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.google.gson.stream.JsonReader
-import java.util.concurrent.Executor
 
 class DataInitializerWork(context: Context, workerParams: WorkerParameters)
     : Worker(context, workerParams) {
@@ -92,9 +91,4 @@ class DataInitializerWork(context: Context, workerParams: WorkerParameters)
     companion object {
         private const val TAG = "DataInitializer"
     }
-}
-
-interface DatabaseCallback {
-    fun success()
-    fun failure(error: String?)
 }
