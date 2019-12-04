@@ -70,7 +70,7 @@ class MainActivity : AppCompatActivity() {
                 // Check if the current work's state is "successfully finished"
                 when (workInfo.state) {
                     SUCCEEDED -> showToast("All Data Store Successfully")
-                    FAILED    -> showToast("Failed to Data Store")
+                    FAILED    -> showToast("Failed to Store Data")
                     else -> {}
                 }
             })

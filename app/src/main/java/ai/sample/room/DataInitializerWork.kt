@@ -41,6 +41,7 @@ class DataInitializerWork(context: Context, workerParams: WorkerParameters)
             }
         } catch (exception: Exception) {
             Log.e(TAG, "Error on reading Message file", exception)
+            result = Result.failure()
         }
     }
 
